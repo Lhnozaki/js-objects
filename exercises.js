@@ -323,6 +323,24 @@ console.log(putInPlainBox(plainBox));
     Invoke your function and pass in your stockCar object, store the result to a variable named isAutomaticTransmission and use `console.log` to inspect your results.
  */
 
+var stockCar = {
+
+  model: "Ford",
+  automaticTransmission: false,
+  driver: null,
+  passengers: [],
+}
+
+function detectingTransmission(obj) {
+  var sentence1 = "The car has automatic transmition";
+  var sentence2 = "The car has manual transmition";
+  if (obj.automaticTransmission === true){
+    return sentence1;
+  }else{
+    return sentence2;
+  }
+}
+console.log(detectingTransmission(stockCar));
 
 /*
 12.  Who's driving this thing?!
