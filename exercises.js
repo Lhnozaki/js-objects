@@ -293,6 +293,23 @@ console.log(sumObj);
         Invoke your function and pass in your object (which should be `plainBox`), store the result to a variable named 
         plainBoxResult and use `console.log` to inspect your results.
  */
+var plainBox = {};
+
+plainBox.color = "Navy Blue";
+plainBox.size = 20;
+plainBox.contents = [];
+
+//console.log(plainBox);
+
+function putInPlainBox(obj){
+  for (i = 0; i < 10 ; i++){
+  var randomNum = Math.floor(Math.random()*10);
+  //console.log(randomNum);
+  obj.contents.push(randomNum);
+  }
+  return obj;
+}
+console.log(putInPlainBox(plainBox));
 
 
 /*
