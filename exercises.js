@@ -354,7 +354,12 @@ console.log(detectingTransmission(stockCar));
       your results. Consider using `plainPerson` as your driver.
  */
 
-
+function addDriver(car, person){
+  car.driver = person;
+  return car;
+}
+var stockCarWithDriver = addDriver(stockCar, completePerson);
+console.log(stockCarWithDriver);
 
 
 /*
