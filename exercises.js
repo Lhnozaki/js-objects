@@ -43,10 +43,12 @@ var dog = {
     age: 1,
     vegeterian: false,
     color: ["Black", "White"],
-    speak: "bark!",
+    speak: function(){
+      return "Bark!";
+    }
 }
 
-console.log("My dog", dog.name, "is", dog.age, "years old and he likes to", dog.speak, "at strangers.");
+console.log("My dog", dog.name, "is", dog.age, "years old and he likes to", dog.speak(), "at strangers.");
 
 //An empty object
 
@@ -328,7 +330,7 @@ var stockCar = {
   model: "Ford",
   automaticTransmission: false,
   driver: null,
-  passengers: [],
+  passengers: [], 
 }
 
 function detectingTransmission(obj) {
@@ -399,6 +401,35 @@ console.log(stockCarWithDriver);
 var passengerList = ['Jon', 'Jason', 'Tony', 'Joe', 'Jesse', 'Nigel', 'Kelli', 'Marifel', 'Victor']
 var passengerAges = [19, 12, 21, 22, 16, 9, 19, 20, 15];
 
+function addPassengers(car, name, ages){
+  for (i=0;i<name.length;i++){
+    var emptyArry = {};
+    buildPerson(emptyArry, name[i], ages[i]);
+    car.passengers.push(emptyArry); 
+  }
+  return car;
+}
+var completeStockCar = addPassengers (stockCar, passengerList, passengerAges);
+console.log(completeStockCar);
+
+function dirty(riders){
+  for (i = 0; i<riders.length; i++){
+  var dirtyPerson = riders[i].name;
+  var dirtyAge = riders[i].age;
+  console.log(dirtyPerson + ", age " + dirtyAge + ", is riding dirty!");
+  }
+}
+
+dirty(stockCar.passengers);
+
+
+
+//function buildPerson(person, nameString, age) {
+  // person.name = nameString;
+  // person.age = age;
+  // return person;
+//}
+
 // function addPassengers(car, name, ages) {
 //     for (i = 0; i < name.length; i++){
 //       car.passengers.push(name[i], ages[i]);
@@ -409,18 +440,25 @@ var passengerAges = [19, 12, 21, 22, 16, 9, 19, 20, 15];
 // var loadedCar = addPassengers(stockCar, passengerList, passengerAges);
 // console.log(loadedCar);
 
-function addPassengers(car, name, ages) {
-  for (var i = 0; i < name.length; i++){
-    var X = {};
-    buildPerson(X, name[i], ages[i]);
-    car.passengers.push(X);
-    //car.passengers.push(ages[i]);
-  }
-  return car;
-}
-var loadedCar = addPassengers(stockCar, passengerList, passengerAges);
-//  console.log(loadedCar);
+// function addPassengers(car, name, ages) {
+//   for (var i = 0; i < name.length; i++){
+//     var X = {};
+//     buildPerson(X, name[i], ages[i]);
+//     car.passengers.push(X);
+//     //car.passengers.push(ages[i]);
+//   }
+//   return car
+// }
+// var loadedCar = addPassengers(stockCar, passengerList, passengerAges);
+// console.log(loadedCar);
 
-for (i = 0; i < stockCar.passengers.length; i++){
-  console.log(stockCar.passengers[i], "is riding dirty!");
-}
+
+// function dirty (car){
+//       for (var prop in car){  
+//     }
+//       var sent = car.name[prop] + ", age " + car.age[prop] + ", is riding dirty!";{
+//     i++;
+//   }return sent;
+// }
+
+// console.log(dirty(stockCar.passengers));
